@@ -21,27 +21,23 @@ int main () {
   int oPerm[uSet.length()-1];
   int permNum = factorial(uSet.length());
   int setLength = uSet.length();
-  string perms[permNum-1 ];
+  string * perms[permNum-1 ];
 
 
   //std::sort (myints,myints+3);
 
   cout << "The " << permNum << " possible permutations with " << setLength << " elements:\n";
   
-  for (int i = 0; i < permNum-1; i++){
+  for (int i = 0; i < permNum; i++){
   
   		// take that original set and get the "next_permutation" so we can
   		// add it to an array of all the possible permutations (from which
   		// we can randomly select one later)
   		
+  		cout << i << '\t' << uSet << '\n';
+  		perms[i] = &uSet;
+  		
   		std::next_permutation(uSet.begin(),uSet.end());
-  		
-  		cout << '\t' << uSet << '\n';
-  		
-  		for (int j = 0; j < setLength-1; j++){
-  			
-  			perms[i] = uSet;
-  		}
   	}
  	
  	cout << "Random Permutation: ";
@@ -49,10 +45,13 @@ int main () {
  	// it took me some time to figure out that i need to seed for the random num generation
  	srand(time(NULL));
 
+	int topRand = permNum-1;
  	//randomly select one of the possible permutations
-	int rPerm = rand() % permNum-1;
+	int rPerm = rand() % topRand;
+	string * f = perms[rPerm];
+	string  finalString = f;
 	
-  	cout << perms[rPerm] << '\n';
+  	cout << "random num: " << rPerm << "\n" << finalString << '\n';
   
 
   return 0;
