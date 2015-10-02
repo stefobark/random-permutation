@@ -1,8 +1,8 @@
 // next_permutation example
+// from the documentation, with cout and cin stuff
+
 #include <iostream>     // std::cout
 #include <algorithm>    // std::next_permutation, std::sort
-#include <sstream>
-#include <vector>
 #include <stdlib.h>     /* srand, rand */
 using namespace std;
 
