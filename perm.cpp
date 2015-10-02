@@ -21,7 +21,7 @@ int main () {
   int oPerm[uSet.length()-1];
   int permNum = factorial(uSet.length());
   int setLength = uSet.length();
-  string * perms[permNum-1 ];
+  string perms[permNum];
 
 
   //std::sort (myints,myints+3);
@@ -34,8 +34,8 @@ int main () {
   		// add it to an array of all the possible permutations (from which
   		// we can randomly select one later)
   		
-  		cout << i << '\t' << uSet << '\n';
-  		perms[i] = &uSet;
+  		cout << '\t' << i << '\t' << uSet << '\n';
+  		perms[i] = uSet;
   		
   		std::next_permutation(uSet.begin(),uSet.end());
   	}
@@ -48,10 +48,9 @@ int main () {
 	int topRand = permNum-1;
  	//randomly select one of the possible permutations
 	int rPerm = rand() % topRand;
-	string * f = perms[rPerm];
-	string  finalString = f;
+	string f = perms[rPerm];
 	
-  	cout << "random num: " << rPerm << "\n" << finalString << '\n';
+  	cout << "random num: " << rPerm << "\n" << f << '\n';
   
 
   return 0;
